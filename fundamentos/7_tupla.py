@@ -83,6 +83,7 @@ print(cidades_tuple[1:])
 print(cidades_tuple[:-1])
 print(cidades_tuple.index("Recife"))
 print("=" * 60)
+print()
 
 """
 Exercício 2 (Bônus):
@@ -97,7 +98,33 @@ Mostre o número total de dias na semana (use len())
 
 dias = ("segunda", "terça", "quarta", "quinta", "sexta", "sábado", "domingo")
 
-print(dias[:-2])
+print(dias[:5])
 print(dias[-2:])
 print("domingo" in dias)
 print(len(dias))
+print()
+
+"""
+Exercício 3:
+Posso colocar uma tupla dentro de outra?
+R = Sim, tuplas podem conter outras tuplas. Isso é chamado de tupla aninhada (nested tuple).
+Uma tupla é uma coleção de elementos imutáveis.
+Mas esses elementos podem ser de qualquer tipo, inclusive outras tuplas.
+
+Exemplo:
+"""
+filmes_fixos = (
+    ("Batman Begins", 2005, 8.2),
+    ("Matrix", 1999, 8.7),
+    ("Interestelar", 2014, 8.6),
+)
+print(filmes_fixos)
+
+# Acessando a tupla completa do primeiro filme
+print(filmes_fixos[0])
+
+# Acessando o nome do segundo filme
+print(filmes_fixos[1][0])
+
+# Acessando o ano do terceiro filme
+print(filmes_fixos[2][1])

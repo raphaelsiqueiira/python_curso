@@ -121,7 +121,7 @@ frutas_casa = {"maçã", "laranja", "pera"}
 print("Frutas em ambos os lugares:", frutas_mercado.intersection(frutas_casa))
 print("Frutas só no mercado:", frutas_mercado.difference(frutas_casa))
 print("Todas as frutas:", frutas_mercado.union(frutas_casa))
-
+print()
 
 """
 Complementos e explicações
@@ -140,3 +140,18 @@ Complementos e explicações
     - remove() — remove um item específico (causa erro se o item não existir).
     - discard() — remove um item, mas não causa erro se o item não existir (mais seguro).
 """
+
+"""
+Exercício 3:
+Posso colocar um set dentro de outro?
+Não, pois sets só podem conter elementos imutáveis.
+Mas um set é mutável, logo, não pode ser colocado dentro de outro set
+
+set_a = {1, 2, 3}
+set_b = {set_a}  #  Erro: TypeError: unhashable type: 'set'
+
+Nesses casos, podemos usar frozenset(). É uma versão imutável de set, e pode ser colocada dentro de outro set:
+"""
+set_a = frozenset({1, 2, 3})
+set_b = {set_a}
+print(set_b)

@@ -108,6 +108,7 @@ lista_ordenada = sorted(minha_lista)
 print(len(films_list))
 films_list_top3 = films_list[0:3].copy()
 print(films_list_top3)
+print()
 
 """
 Exercício 2:
@@ -131,3 +132,50 @@ media = soma_total / len(numeros)
 print("Lista após remoção do maior número:", numeros)
 print("Soma total:", soma_total)
 print("Média:", media)
+print()
+
+"""
+Exercício 3:
+Posso colocar uma lista dentro de outra?
+R = Sim. Isso se chama lista aninhada ou nested list.
+
+Exemplo:
+filmes_favoritos = [
+    ["Batman Begins", 2005],
+    ["Matrix", 1999],
+    ["Interestelar", 2014]
+]
+Essa estrutura é muito útil quando você quer agrupar dados relacionados.
+
+Você pode acessar assim:
+
+print(filmes_favoritos[0])        # ['Batman Begins', 2005]
+print(filmes_favoritos[0][0])     # Batman Begins
+print(filmes_favoritos[2][1])     # 2014
+"""
+
+"""
+Exercício 4 (Extra): 
+Crie uma lista chamada catálogo contendo 3 sublistas. Cada sublista deve conter:
+
+Nome do filme (string)
+Ano de lançamento (int)
+Nota do filme (float)
+
+Depois:
+
+Mostre o nome do segundo filme
+Mostre a nota do terceiro filme
+Crie uma nova lista apenas com os nomes dos filmes usando fatiamento/aninhamento
+"""
+
+catalogo = [
+    ["Batman", 2005, 8.2],
+    ["Jonh Wick", 2014, 7.5],
+    ["Interestelar", 2020, 9.0],
+]
+print(catalogo)
+print(catalogo[1][0])
+print(catalogo[2][2])
+nome_filmes = [catalogo[0][0], catalogo[1][0], catalogo[2][0]]
+print(nome_filmes)
