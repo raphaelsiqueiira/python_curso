@@ -9,6 +9,19 @@ Usar métodos importantes (append, sort, remove, etc.)
 Manipular listas na prática
 """
 
+"""
+O que são listas?
+Uma lista é uma estrutura de dados mutável usada para armazenar múltiplos valores em uma única variável.
+
+Ela é definida por colchetes [], e seus elementos podem ser de qualquer tipo (strings, números, booleanos...).
+
+As listas:
+Aceitam elementos repetidos
+São ordenadas (cada item tem uma posição, chamada de índice)
+Permitem modificações (adicionar, remover, reordenar)
+
+"""
+
 filme_batman = ["Batman Begins", 2005, 8.2, True]
 """
 Aqui temos uma lista com múltiplos tipos de dados (str, int, float, bool). Isso é normal em Python, pois listas são estruturas heterogêneas.
