@@ -1,14 +1,14 @@
 """
 Objetivos da aula:
-Compreender o conceito de variável em Python
+Compreender o conceito de variável e constante
 
-Conhecer os tipos de dados primitivos
+Conhecer os tipos de dados primitivos: str, int, float, bool
 
-Aprender a usar a função type()
+Usar a função type() para identificar tipos
 
-Entender a importância dos tipos na programação
+Escrever boas práticas no uso de nomes
 
-Aplicar os conceitos com um exemplo prático
+Criar saídas com print() usando concatenação, format() e f-strings
 
 """
 
@@ -20,8 +20,21 @@ Aplicar os conceitos com um exemplo prático
  Exemplo:
  name = "Fulano"
 
- name é o nome da variável
+ name é o identificador da variável (nome escolhido)
  "Fulano" é o valor armazenado na variável
+"""
+
+"""
+O que é uma constante?
+Diferente das variáveis, as constantes não devem mudar seu valor durante o programa.
+Python não possui constantes de forma nativa como outras linguagens, mas usamos uma convenção:
+Toda constante deve ser escrita com letras maiúsculas e separada por _ (snake case):
+
+Exemplo:
+TAXA_JUROS = 0.13
+PI = 3.14159
+
+Importante: Python permite mudar o valor de uma "constante", mas não devemos fazer isso, por convenção.
 """
 
 """
@@ -81,7 +94,7 @@ Exercícios:
 
 1 - Explique com suas palavras a diferença entre os tipos: str, int, float e bool:
 
-Resposta = O tipo str representa textos (sequência de caracteres), o tipo int representa números inteiros, float representa números decimais com ponto, e bool representa valores lógicos: verdadeiro ou falso (True ou False).
+Resposta = O tipo str representa textos (sequência de caracteres), o tipo int representa números inteiros, float representa números decimais com ponto, e bool representa valores lógicos: verdadeiro ou falso (True ou False)
 """
 
 """
