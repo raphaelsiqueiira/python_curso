@@ -75,13 +75,13 @@ available = True  # bool
 print(type(MOVIE_NAME))
 print(type(YEAR_LAUNCH))
 print(type(note_movie))
-print(type(avaiable))
+print(type(available)
 print()
 
 print("Nome do Filme: " + MOVIE_NAME) # caso o valor da variável fosse um número, daria erro pois ele tentaria somar um texto com um número
 print("Data de Lançamento: {}".format(YEAR_LAUNCH)) # ainda é amplamente utilizado, embora o f-string seja mais moderno e recomendado desde o Python 3+
 print(f"Nota do Filme: {note_movie}") # recomendado
-print("Disponível para locação: ", avaiable)
+print("Disponível para locação: ", available)
 
 """
 Boas práticas:
