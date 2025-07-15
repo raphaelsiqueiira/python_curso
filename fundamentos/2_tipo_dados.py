@@ -116,7 +116,7 @@ Resposta = O tipo str representa textos (sequência de caracteres), o tipo int r
 O filme escolhido foi: Matrix
 Lançado em: 1999
 Nota: 8.7
-Disponível? True
+Disponível: True
 """
 
 NOME_FILME = "Matrix"
@@ -127,14 +127,14 @@ disponibilidade = True
 print(f"O filme escolhido foi: {NOME_FILME}")
 print(f"Lançado em: {ANO_LANCAMENTO}")
 print(f"Nota: {nota_filme}")
-print(f"Disponível? {disponibilidade}")
+print(f"Disponível: {disponibilidade}")
 
 """
 3 - Bônus: 
 Armazene um filme com nome (str), ano (int), nota (float) e se está disponível (bool).
 Depois exiba as informações no seguinte formato: 
 
-Filme 1: Interstellar (2014) - Nota: 8.6 - Disponível? True  
+Filme 1: Interstellar (2014) - Nota: 8.6 - Disponível: True  
 """
 NOME_FILME = "Interstellar"
 ANO_LANCAMENTO  = 2014
@@ -142,7 +142,7 @@ nota_filme = 8.6
 disponibilidade = True
 
 print(
-    f"Filme 1: {NOME_FILME} ({ANO_LANCAMENTO}) - Nota: {nota_filme} - Disponível? {disponibilidade}"
+    f"Filme 1: {NOME_FILME} ({ANO_LANCAMENTO}) - Nota: {nota_filme} - Disponível: {disponibilidade}"
 )
 
 
