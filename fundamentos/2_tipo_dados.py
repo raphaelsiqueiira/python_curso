@@ -112,13 +112,13 @@ Nota: 8.7
 Disponível? True
 """
 
-nome_filme = "Matrix"
-ano_lancamento = 1999
+NOME_FILME = "Matrix"
+ANO_LANCAMENTO = 1999
 nota_filme = 8.7
 disponibilidade = True
 
-print(f"O filme escolhido foi: {nome_filme}")
-print(f"Lançado em: {ano_lancamento}")
+print(f"O filme escolhido foi: {NOME_FILME")
+print(f"Lançado em: {ANO_LANCAMENTO}")
 print(f"Nota: {nota_filme}")
 print(f"Disponível? {disponibilidade}")
 
@@ -129,13 +129,13 @@ Depois exiba as informações no seguinte formato:
 
 Filme 1: Interstellar (2014) - Nota: 8.6 - Disponível? True  
 """
-nome_filme = "Interstellar"
-ano_lancamento = 2014
+NOME_FILME = "Interstellar"
+ANO_LANCAMENTO  = 2014
 nota_filme = 8.6
 disponibilidade = True
 
 print(
-    f"Filme 1: {nome_filme } ({ano_lancamento}) - Nota: {nota_filme} - Disponível? {disponibilidade}"
+    f"Filme 1: {NOME_FILME} ({ANO_LANCAMENTO}) - Nota: {nota_filme} - Disponível? {disponibilidade}"
 )
 
 
