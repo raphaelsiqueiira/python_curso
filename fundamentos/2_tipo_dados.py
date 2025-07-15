@@ -24,6 +24,17 @@ Criar saídas com print() usando concatenação, format() e f-strings
  "Fulano" é o valor armazenado na variável
 """
 
+nome_usuario = "Fulano"
+print(nome_usuario)
+nome_usuario = "Ciclano"
+print(nome_usuario)
+
+nome_pessoa1, nome_pessoa2, nome_pessoa3 = "Fulano", "Ciclano", "Beltrano"
+print(nome_pessoa1)
+print(nome_pessoa2)
+print(nome_pessoa3)
+print()
+
 """
 O que é uma constante?
 Diferente das variáveis, as constantes não devem mudar seu valor durante o programa.
@@ -36,6 +47,12 @@ PI = 3.14159
 
 Importante: Python permite mudar o valor de uma "constante", mas não devemos fazer isso, por convenção.
 """
+
+PI = 3.14
+print(PI)
+PI = 50
+print(PI)
+print()
 
 """
 Tipos de dados      | Explicação                                     | Exemplo
@@ -50,31 +67,21 @@ Tipos de dados      | Explicação                                     | Exemplo
 
 # Locadora de Filmes
 
-movie_name = "Batman Begins"  # string
-year_launch = 2005  # int
+MOVIE_NAME = "Batman Begins"
+YEAR_LAUNCH = 2005
 note_movie = 8.2  # float
 available = True  # bool
 
-print(
-    "Nome do Filme: " + movie_name
-)  # caso o valor da variável fosse um número, daria erro pois ele tentaria somar um texto com um número
-print(type(movie_name))
-print()
-
-print(
-    "Data de lançamento: {}".format(year_launch)
-)  # ainda é amplamente utilizado, embora o f-string seja mais moderno e recomendado desde o Python 3+
-print(type(year_launch))
-print()
-
-print(f"Nota do Filme: {note_movie}")  # recomendado
+print(type(MOVIE_NAME))
+print(type(YEAR_LAUNCH))
 print(type(note_movie))
+print(type(avaiable))
 print()
 
-print("Disponível para locação:",available)
-print(type(available))
-print()
-
+print("Nome do Filme: " + MOVIE_NAME) # caso o valor da variável fosse um número, daria erro pois ele tentaria somar um texto com um número
+print("Data de Lançamento: {}".format(YEAR_LAUNCH)) # ainda é amplamente utilizado, embora o f-string seja mais moderno e recomendado desde o Python 3+
+print(f"Nota do Filme: {note_movie}") # recomendado
+print("Disponível para locação: ", avaiable)
 
 """
 Boas práticas:
