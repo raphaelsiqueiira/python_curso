@@ -75,12 +75,16 @@ available = True  # bool
 print(type(MOVIE_NAME))
 print(type(YEAR_LAUNCH))
 print(type(note_movie))
-print(type(available)
+print(type(available))
 print()
 
-print("Nome do Filme: " + MOVIE_NAME) # caso o valor da variável fosse um número, daria erro pois ele tentaria somar um texto com um número
-print("Data de Lançamento: {}".format(YEAR_LAUNCH)) # ainda é amplamente utilizado, embora o f-string seja mais moderno e recomendado desde o Python 3+
-print(f"Nota do Filme: {note_movie}") # recomendado
+print(
+    "Nome do Filme: " + MOVIE_NAME
+)  # caso o valor da variável fosse um número, daria erro pois ele tentaria somar um texto com um número
+print(
+    "Data de Lançamento: {}".format(YEAR_LAUNCH)
+)  # ainda é amplamente utilizado, embora o f-string seja mais moderno e recomendado desde o Python 3+
+print(f"Nota do Filme: {note_movie}")  # recomendado
 print("Disponível para locação: ", available)
 
 """
@@ -117,7 +121,7 @@ ANO_LANCAMENTO = 1999
 nota_filme = 8.7
 disponibilidade = True
 
-print(f"O filme escolhido foi: {NOME_FILME")
+print(f"O filme escolhido foi: {NOME_FILME}")
 print(f"Lançado em: {ANO_LANCAMENTO}")
 print(f"Nota: {nota_filme}")
 print(f"Disponível? {disponibilidade}")
@@ -130,7 +134,7 @@ Depois exiba as informações no seguinte formato:
 Filme 1: Interstellar (2014) - Nota: 8.6 - Disponível? True  
 """
 NOME_FILME = "Interstellar"
-ANO_LANCAMENTO  = 2014
+ANO_LANCAMENTO = 2014
 nota_filme = 8.6
 disponibilidade = True
 
