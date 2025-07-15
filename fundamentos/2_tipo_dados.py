@@ -134,7 +134,7 @@ print(f"Disponível: {disponibilidade}")
 Armazene um filme com nome (str), ano (int), nota (float) e se está disponível (bool).
 Depois exiba as informações no seguinte formato: 
 
-Filme 1: Interstellar (2014) - Nota: 8.6 - Disponível: True  
+Filme 1: Interstellar (2014) - Nota: 8.60 - Disponível: True  
 """
 NOME_FILME = "Interstellar"
 ANO_LANCAMENTO  = 2014
