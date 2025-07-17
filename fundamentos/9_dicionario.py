@@ -161,3 +161,112 @@ films = {
 }
 print(films)
 print(films["Tenet"]["genre"])
+print()
+
+idade = int(input("Informe sua idade:\n>>>"))
+
+print(f"Maior de idade? {idade > 18}")
+print(f"Você tem 18 anos? {idade == 18}")
+print(f"Você tem menos de 12 anos? {idade < 12}")
+print()
+
+numero1 = float(input("Digite o primeiro número:\n>>>"))
+numero2 = float(input("Digite o segundo número:\n>>>"))
+
+print(
+    f"""
+O primeiro número é {numero1} e segundo número é {numero2}
+Soma: {numero1 + numero2}
+Subtração: {numero1 - numero2}
+Multiplicação: {numero1 * numero2}
+Divisão: {numero1 / numero2}
+Resto da divisão: {numero1 % numero2}
+"""
+)
+
+frase = input("Digite uma frase:\n>>>")
+print("python" in frase.lower())
+print(frase.upper())
+print(len(frase.replace(" ", "")))
+print(frase[::-1])
+
+frase = "Python é incrível"
+print(frase[frase.find("i") : frase.find("l") + 1])
+print(frase.replace("Python", "Programar"))
+print()
+
+filmes_favoritos = [
+    "Batman Begins",
+    "Sharknado",
+    "O Menino do Pijama Listrado",
+    "O Espetacular Homem Aranha",
+    "Procurando Nemo",
+]
+
+print(f"Primeiro filme: {filmes_favoritos[0]} | Último filme: {filmes_favoritos[-1]}")
+filmes_favoritos.append("Superman")
+filmes_favoritos.sort()
+
+filmes_favoritos_copy = filmes_favoritos[0:3].copy()
+print(filmes_favoritos_copy)
+print()
+
+notas = [7.5, 8.0, 9.2, 6.5, 8.8]
+
+notas.remove(min(notas))
+media = sum(notas) / len(notas)
+print(media)
+print(notas)
+print()
+
+dias_semana = ("segunda", "terça", "quarta", "quinta", "sexta", "sábado", "domingo")
+print(dias_semana[:5])
+print(dias_semana[-2:])
+print("domingos" in dias_semana)
+print(len(dias_semana))
+print()
+
+frutas_casa = {"maçã", "laranja", "banana"}
+frutas_mercado = {"banana", "uva", "maçã"}
+
+print(f"Ambas: {frutas_casa.intersection(frutas_mercado)}")
+print(f"Só em casa: {frutas_casa.difference(frutas_mercado)}")
+print(f"Juntas: {frutas_casa.union(frutas_mercado)}")
+print()
+
+filme = {
+    "titulo": "Batman Begins",
+    "ano": 2005,
+    "nota": 8.2,
+    "genero": ["Superhero", "Action", "Drama"],
+}
+
+filme["Diretor"] = "Christopher Nolan"
+filme.update({"nota": 9})
+filme.pop("genero")
+print(filme)
+print(filme.keys())
+print(filme.values())
+print()
+
+filmes_dicionarios = {
+    "Batman Begins": {
+        "year_release": 2005,
+        "imdb_rating": 8.2,
+        "genre": ["Superhero", "Action", "Drama"],
+        "director": "Christopher Nolan",
+    },
+    "John Wick": {
+        "year_release": 2014,
+        "imdb_rating": 7.5,
+        "genre": ["Action", "Crime", "Gun fu"],
+        "director": "Chad Stahelski",
+    },
+}
+
+print(filmes_dicionarios["John Wick"]["director"])
+
+filmes_dicionarios["Batman Begins"]["disponível"] = True
+filmes_dicionarios["John Wick"]["avaliable"] = True
+del filmes_dicionarios["John Wick"]
+print(filmes_dicionarios)

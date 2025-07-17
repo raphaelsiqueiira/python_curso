@@ -121,3 +121,20 @@ frase.lower().count(palavra.lower())
 frase = input("Digite uma frase:\n>>>")
 palavra = input("Digite uma palavra:\n>>>")
 print(frase.lower().count(palavra.lower()))
+
+"""
+Exercício 4(Bônus)
+Peça uma frase e:
+Exiba a primeira palavra
+Exiba a última palavra
+Exiba a quantidade de caracteres totais (sem espaços)
+Exiba a frase invertida com letras maiúsculas
+"""
+
+frase = input("Digite uma frase:\n>>>").strip()
+palavras = frase.split()
+
+print(f"Primeira palavra: {palavras[0]}")
+print(f"Última palavra: {palavras[-1]}")
+print(f"Caracteres Totais: {len(frase.replace(" ", ""))}")
+print(f"Frase invertida em maiúsculas: {frase[::-1].upper()}")
