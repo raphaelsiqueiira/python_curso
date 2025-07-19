@@ -90,3 +90,64 @@ elif idade == 18:
     print("Você tem 18 anos")
 else:
     print("Você tem mais de 18 anos")
+print()
+
+"""
+Exercício 2: Verificador de número
+Peça um número ao usuário e diga se ele é:
+Par ou ímpar
+Positivo, negativo ou zero
+"""
+
+numero = int(input("Digite um número:\n>>>"))
+
+(
+    print(f"O número {numero} é par")
+    if numero % 2 == 0
+    else print(f"O número {numero} é ímpar")
+)
+
+if numero > 0:
+    print("Ele também é positivo")
+elif numero == 0:
+    print("O número é zero")
+else:
+    print("Ele também é negativo")
+print()
+
+"""
+Exercício 3: Simulador de desconto
+Peça o valor de uma compra:
+Se for maior que R$ 100, aplicar 10% de desconto
+Se for entre R$ 50 e R$ 100, aplicar 5%
+Se for menor que R$ 50, não aplicar desconto
+"""
+
+valor_compra = float(input("Qual o valor da compra:\n>>>"))
+valor_com_desconto = 0
+
+valor_formatado = (
+    f"R$ {valor_compra:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+)
+print(f"Sua compra foi no valor de {valor_formatado}")
+
+if valor_compra > 100:
+    valor_com_desconto = valor_compra - (valor_compra * 0.1)
+    print(f"Para compras acima de R$ 100,00, você recebe 10% de desconto")
+
+elif valor_compra <= 100 or valor_compra >= 50:
+    valor_com_desconto = valor_compra - (valor_compra * 0.05)
+    print(
+        f"Para compras acima de R$ 50,00 e abaixo de R% 100,00, você recebe 5% de desconto"
+    )
+
+else:
+    print("Para esse valor, não tem desconto")
+
+valor_com_desconto_formatado = (
+    f"R$ {valor_com_desconto:,.2f}".replace(",", "X")
+    .replace(".", ",")
+    .replace("X", ".")
+)
+
+print(f"O valor com desconto é {valor_com_desconto_formatado}")
