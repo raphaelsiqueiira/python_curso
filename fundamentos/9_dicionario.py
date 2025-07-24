@@ -55,9 +55,6 @@ KeyError: 'nome_da_chave'
 
 Por isso é mais seguro usar get(), que retorna None (ou um valor padrão, se você quiser).
 
-python
-Copiar
-Editar
 print(film.get("diretor"))        # None
 print(film.get("diretor", "N/A")) # "N/A" (valor padrão)
 """
