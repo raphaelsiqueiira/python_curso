@@ -15,6 +15,28 @@ class Biblioteca:
     def __str__(self):
         return self.nome
 
+    @classmethod
+    def criar_biblioteca(cls, nome_biblioteca):
+        nome_biblioteca = nome_biblioteca.title().strip()
+        if nome_biblioteca in [b.nome for b in Biblioteca.bibliotecas]:
+            print(
+                f"Já existe uma  biblioteca chamada {nome_biblioteca}. Digite outro nome"
+            )
+            return None
+        return cls(nome_biblioteca)
+
+    @classmethod
+    def remover_biblioteca(cls, indice_biblioteca):
+        try:
+            indice_biblioteca = int(indice_biblioteca)
+            if 0 <= indice_biblioteca - 1 < len(cls.bibliotecas):
+                biblioteca_removida = cls.bibliotecas.pop(indice_biblioteca - 1)
+                return f"Biblioteca '{biblioteca_removida.nome}' removida com sucesso!"
+            else:
+                return f"Índice {indice_biblioteca} inválido."
+        except (ValueError, IndexError):
+            return "Erro: insira um número válido para o índice da biblioteca."
+
     def adicionar_item(self, item):
         if isinstance(item, ItemBiblioteca):
             self._itens.append(item)
@@ -42,8 +64,22 @@ class Biblioteca:
                 msg_serie = f"{i} - (REVISTA) Título: {item._titulo.ljust(30)} | Autor: {item._autor.ljust(30)} | Preço: R$ {str(item._preco).ljust(10)} | Edições: {item.edicoes}"
                 print(msg_serie)
 
+    @classmethod
+    def alterar_status_biblioteca(cls, indice_biblioteca):
+        try:
+            indice_biblioteca = int(indice_biblioteca)
+            if 0 <= indice_biblioteca - 1 < len(cls.bibliotecas):
+                biblioteca_alterada = cls.bibliotecas[indice_biblioteca - 1]
+                biblioteca_alterada.alternar_status()
+
+                return f"Biblioteca '{biblioteca_alterada.nome}' teve o status atualizado para {biblioteca_alterada.ativo}!"
+            else:
+                return f"Índice {indice_biblioteca} inválido."
+        except (ValueError, IndexError):
+            return "Erro: insira um número válido para o índice da biblioteca."
+
     def alternar_status(self):
-        self._status = not self._status
+        self._ativo = not self._ativo
 
     @property
     def ativo(self):
@@ -51,13 +87,21 @@ class Biblioteca:
 
     @classmethod
     def listar_bibliotecas(cls):
-        print(
-            f"{'Nome da Biblioteca'.ljust(25)} | {'Nota média'.ljust(25)} | {'Status'}"
-        )
-        for biblioteca in Biblioteca.bibliotecas:
-            print(
-                f"{biblioteca.nome.ljust(25)} | {str(biblioteca.media_avaliacoes).ljust(25)} | {biblioteca.ativo}"
+        if not cls.bibliotecas:
+            return "Nenhuma biblioteca cadastrada."
+
+        linhas = [
+            f"{'Nome da Biblioteca'.ljust(35)} | {'Nota média'.ljust(25)} | {'Status'}"
+        ]
+        for index, biblioteca in enumerate(cls.bibliotecas, start=1):
+            linha = (
+                f"{index} - {biblioteca.nome.ljust(31)} | "
+                f"{str(biblioteca.media_avaliacoes).ljust(25)} | "
+                f"{biblioteca.ativo}"
             )
+            linhas.append(linha)
+
+        return "\n".join(linhas)
 
     def buscar_itens(self, termo_busca):
         termo_busca = termo_busca.lower()
