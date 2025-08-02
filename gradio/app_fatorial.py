@@ -13,7 +13,7 @@ iface = gr.Interface(
     inputs="number",
     outputs="text",
     title="Calculadora de Fatorial",
-    description="Insira um número para obter o faatorial",
+    description="Insira um número para obter o fatorial",
     theme="default",
 )
 

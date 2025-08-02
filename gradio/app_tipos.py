@@ -4,7 +4,7 @@ import gradio as gr
 def processar_dados(texto, numero, imagem, lista_texto, cor, opcoes):
     texto_revertido = texto[::-1]
     dobro_numero = numero * 2
-    mensagem_imagem = "Imagem recebida" if imagem else "Não hpa imagem recebida"
+    mensagem_imagem = "Imagem recebida" if imagem else "Não há imagem recebida"
 
     lista_processada = (
         [[item] for item in lista_texto.splitlines()] if lista_texto else []
