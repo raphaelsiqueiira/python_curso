@@ -17,12 +17,6 @@ def cadastrar_item(tipo, titulo, ano, duracao, temporada):
     elif not ano:
         return "O campo 'Ano de Lançamento' é obrigatório."
 
-    elif not duracao and tipo == "Filme":
-        return "O campo 'Duração do Filme ' é obrigatório."
-
-    elif not duracao and tipo == "Filme":
-        return "O campo 'Quantidade de Temporadas' é obrigatório."
-
     try:
         ano = int(ano)
         if tipo == "filme":
@@ -36,11 +30,11 @@ def cadastrar_item(tipo, titulo, ano, duracao, temporada):
         return f"O campo 'Ano' deve estar entre 1800 e {ano_atual}."
 
     if tipo == "Filme":
-        if duracao <= 0:
+        if duracao < 0:
             return "Informe uma duração válida para o filme."
         novo = Filme(titulo, ano, duracao)
     elif tipo == "Série":
-        if temporada <= 0:
+        if temporada < 0:
             return "Informe uma quantidade válida de temporadas para a série."
         novo = Serie(titulo, ano, temporada)
     else:
@@ -59,27 +53,47 @@ def alternar_campos(opcao):
 
 
 with gr.Blocks() as demo:
-    gr.Markdown("##Cadastro de Itens da Locadora")
+    gr.Markdown("# Sistema de Gestão de Locadoras")
 
-    tipo = gr.Radio(["Filme", "Série"], label="Tipo de Item", value="Filme")
-    titulo = gr.Textbox(label="Título")
-    ano = gr.Number(label="Ano de Lançamento", value=ano_atual)
+    with gr.Tabs():
+        # TAB 1 - Cadastro
+        with gr.Tab(label="Cadastro de Itens"):
+            gr.Markdown("## Cadastro de Itens da Locadora")
 
-    duracao = gr.Number(label="Duração do Filme (min)", value=90, visible=True)
-    temporada = gr.Number(label="Quantidade de Temporadas", value=1, visible=False)
+            tipo = gr.Radio(
+                ["Filme", "Série"], label="Tipo de Item (Obrigatório)", value="Filme"
+            )
+            titulo = gr.Textbox(label="Título (Obrigatório)")
+            ano = gr.Number(label="Ano de Lançamento (Obrigatório)", value=ano_atual)
 
-    btn_cadastrar = gr.Button(f"Cadastrar {tipo.value}")
-    saida = gr.Textbox(label="Resultado", lines=6)
+            duracao = gr.Number(label="Duração do Filme (min)", value=90, visible=True)
+            temporada = gr.Number(
+                label="Quantidade de Temporadas", value=1, visible=False
+            )
 
-    btn_cadastrar.click(
-        fn=cadastrar_item, inputs=[tipo, titulo, ano, duracao, temporada], outputs=saida
-    )
+            btn_cadastrar = gr.Button("Cadastrar")
+            saida = gr.Textbox(label="Resultado", lines=6)
 
-    tipo.change(
-        alternar_campos,
-        inputs=tipo,
-        outputs=[duracao, temporada],
-    )
+            btn_cadastrar.click(
+                fn=cadastrar_item,
+                inputs=[tipo, titulo, ano, duracao, temporada],
+                outputs=saida,
+            )
+
+            tipo.change(
+                alternar_campos,
+                inputs=tipo,
+                outputs=[duracao, temporada],
+            )
+
+        # TAB 2 - Catálogo
+        with gr.Tab(label="Catálogo de Itens Cadastrados"):
+            gr.Markdown("## Catálogo de Itens")
+            opcoes = gr.Radio(
+                ["Todos", "Filme", "Série"],
+                label="Tipo de Item",
+                value="Todos",
+            )
 
 if __name__ == "__main__":
     demo.launch()

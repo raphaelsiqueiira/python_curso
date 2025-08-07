@@ -1,6 +1,4 @@
-# series.py
 from modelos.item_locadora import ItemLocadora
-import uuid
 
 
 class Serie(ItemLocadora):
