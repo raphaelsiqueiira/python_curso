@@ -4,6 +4,7 @@ import uuid
 
 
 class ItemLocadora(ABC):
+    _catalogo: list["ItemLocadora"] = []
     __slots__ = (
         "_ItemLocadora__id",
         "_tipo",
@@ -22,6 +23,8 @@ class ItemLocadora(ABC):
         self._alugado: bool = False
         self._avaliacoes: list[int] = []
         self.genero: list[str] = []
+
+        ItemLocadora._catalogo.append(self)
 
     def __repr__(self):
         return f"[{self.__class__.__name__}] {self.titulo} ({self.ano}) - {self.status}"
@@ -54,12 +57,15 @@ class ItemLocadora(ABC):
     @property
     def status(self) -> str:
         return "Alugado" if self._alugado else "Disponível"
-    
-
 
     @property
     def avaliacoes(self) -> list[int]:
         return self._avaliacoes[:]
+
+    @classmethod
+    def listar_catalogo(cls) -> list["ItemLocadora"]:
+        """Retorna todos os itens cadastrados"""
+        return cls._catalogo[:]
 
     def media_avaliacoes(self) -> Optional[float]:
         """Retorna a média das avaliações ou None se não houver"""

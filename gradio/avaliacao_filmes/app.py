@@ -2,54 +2,70 @@ import gradio as gr
 from datetime import date
 from modelos.filmes import Filme
 from modelos.series import Serie
+from modelos.item_locadora import ItemLocadora
 
 ano_atual = date.today().year
 
-catalogo = []
-
 
 def cadastrar_item(tipo, titulo, ano, duracao, temporada):
-    tipo = tipo
+    tipo = tipo.strip().capitalize()
 
     if not titulo.strip():
         return "O campo 'Título' é obrigatório."
-
-    elif not ano:
+    if not ano:
         return "O campo 'Ano de Lançamento' é obrigatório."
+
+    if not (1800 <= ano <= ano_atual):
+        return "Informe um ano de lançamento válido."
 
     try:
         ano = int(ano)
-        if tipo == "filme":
+        if tipo == "Filme":
             duracao = float(duracao)
-        elif tipo == "série":
+            if duracao < 0:
+                return "Informe uma duração válida para o filme."
+            novo = Filme(titulo, ano, duracao)
+        elif tipo == "Série":
             temporada = int(temporada)
+            if temporada < 0:
+                return "Informe uma quantidade válida de temporadas."
+            novo = Serie(titulo, ano, temporada)
+        else:
+            return "Tipo inválido."
     except (ValueError, TypeError):
-        return "Erro ao converter os dados numéricos. Verifique os campos."
-
-    if not (1800 <= ano <= ano_atual):
-        return f"O campo 'Ano' deve estar entre 1800 e {ano_atual}."
-
-    if tipo == "Filme":
-        if duracao < 0:
-            return "Informe uma duração válida para o filme."
-        novo = Filme(titulo, ano, duracao)
-    elif tipo == "Série":
-        if temporada < 0:
-            return "Informe uma quantidade válida de temporadas para a série."
-        novo = Serie(titulo, ano, temporada)
-    else:
-        return "Tipo de item inválido. Escolha entre 'Filme' ou 'Série'."
-
-    catalogo.append(novo)
+        return "Erro ao converter os dados numéricos."
 
     return str(novo.exibir_detalhe())
 
 
-def alternar_campos(opcao):
+def alternar_campos(tipo):
     return (
-        gr.update(visible=(opcao == "Filme")),
-        gr.update(visible=(opcao == "Série")),
+        gr.update(visible=(tipo == "Filme")),
+        gr.update(visible=(tipo == "Série")),
     )
+
+
+def listar_catalogo(opcao):
+    itens = ItemLocadora.listar_catalogo()
+
+    if opcao == "Filmes":
+        itens = [item for item in itens if isinstance(item, Filme)]
+    elif opcao == "Séries":
+        itens = [item for item in itens if isinstance(item, Serie)]
+
+    if not itens:
+        return "Nenhum Item Cadastrado"
+
+    return "\n\n".join(i.exibir_detalhe() for i in itens)
+
+
+def alternar_listagem(opcao):
+    if opcao == "Todos":
+        return gr.update(visible=(opcao == "Todos"))
+    elif opcao == "Filmes":
+        return gr.update(visible=(opcao == "Filmes"))
+    elif opcao == "Series":
+        return gr.update(visible=(opcao == "Séries"))
 
 
 with gr.Blocks() as demo:
@@ -90,9 +106,16 @@ with gr.Blocks() as demo:
         with gr.Tab(label="Catálogo de Itens Cadastrados"):
             gr.Markdown("## Catálogo de Itens")
             opcoes = gr.Radio(
-                ["Todos", "Filme", "Série"],
-                label="Tipo de Item",
+                ["Todos", "Filmes", "Séries"],
+                label="Tipos de Item",
                 value="Todos",
+            )
+            saida_catalogo = gr.Textbox(label="Itens Cadastrados", lines=15)
+
+            opcoes.change(
+                listar_catalogo,
+                inputs=opcoes,
+                outputs=saida_catalogo,
             )
 
 if __name__ == "__main__":
