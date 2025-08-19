@@ -1,4 +1,24 @@
 """
+Objetivos da Aula
+
+Entender o que é um gerador e como ele difere de listas e funções normais.
+
+Aprender a usar a palavra-chave yield.
+
+Criar funções que produzem valores sob demanda (lazy evaluation).
+
+Usar geradores em cenários práticos.
+"""
+
+"""
+Um gerador é um tipo especial de iterador.
+
+Ele não retorna todos os valores de uma vez (como uma lista), mas gera valores sob demanda.
+
+Para isso, usamos a palavra-chave yield dentro da função.
+"""
+
+"""
 Yield
 > É uma palavra chave para criar geradores. Quando você usa ele em uma função, você transforma a função em um gerador, que é um tipo especial de um iterador.
 > Return: Quando executado numa função, é encerrado e o valor é retornado. Chamdas subsequentes à função iniciam a execução novamente do código.
